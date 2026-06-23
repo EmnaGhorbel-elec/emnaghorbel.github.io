@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emna Ghorbel — Embedded Systems &amp; Robotics</title>
+<meta name="description" content="Portfolio of Emna Ghorbel, Electrical Engineering student specializing in embedded systems, embedded Linux, and robotics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOOT -->
+<div id="boot-screen" class="boot-screen" role="status" aria-live="polite">
+  <div class="boot-content">
+    <p class="boot-line" id="boot-line-1">&gt; BOOTING EMNA_GHORBEL.SYS<span class="cursor">_</span></p>
+    <p class="boot-line" id="boot-line-2"></p>
+    <p class="boot-line" id="boot-line-3"></p>
+    <div class="boot-bar"><div class="boot-bar-fill" id="boot-bar-fill"></div></div>
+    <p class="boot-skip">PRESS ANY KEY OR CLICK TO SKIP</p>
+  </div>
+</div>
+
+<div id="screen-flash" class="screen-flash" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div id="cheat-toast" class="cheat-toast" role="status" aria-live="polite">⚡ CHEAT CODE — UNLIMITED ENERGY</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HUD BAR -->
+<div class="hud-bar" aria-label="Game HUD">
+  <span class="hud-left">▶ PLAYER : EMNA_G</span>
+  <span class="hud-center">EE ★ ENIT</span>
+  <span class="hud-right">
+    <span class="battery-icon">🔋</span>
+    <span class="battery-bar-wrap"><span class="battery-fill"></span></span>
+    <span>78%</span>
+  </span>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#hub" class="nav-logo">EG<span class="blink">_</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about"        data-nav>ABOUT</a></li>
+      <li><a href="#status"       data-nav>STATUS</a></li>
+      <li><a href="#worldmap"     data-nav>PROJECTS</a></li>
+      <li><a href="#questlog"     data-nav>QUEST LOG</a></li>
+      <li><a href="#achievements" data-nav>AWARDS</a></li>
+      <li><a href="#continue"     data-nav class="nav-cta">CONNECT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HUB WORLD -->
+<header id="hub" class="hub">
+  <div class="hub-sky" aria-hidden="true">
+    <span class="star star-md s1"></span><span class="star star-sm s2"></span>
+    <span class="star star-md s3"></span><span class="star star-sm s4"></span>
+    <span class="star star-sm s5"></span><span class="star star-md s6"></span>
+    <span class="star star-sm s7"></span><span class="star star-sm s8"></span>
+    <span class="circuit-dot cd1"></span><span class="circuit-dot cd2"></span><span class="circuit-dot cd3"></span>
+    <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+  </div>
+
+  <div class="hub-title">
+    <p class="eyebrow">EMBEDDED SYSTEMS · ROBOTICS · ENIT</p>
+    <h1>EMNA GHORBEL</h1>
+    <p class="hub-tagline">Building software that talks directly to hardware.</p>
+    <p class="hub-hint" id="hub-hint">◀ ▶ TO WALK · ENTER TO SELECT · OR CLICK A SIGN</p>
+  </div>
+
+  <div class="hub-world" id="hub-world">
+    <div class="hub-ground"></div>
+
+    <button class="sign" data-target="#about"        style="--pos:7%;  --flag:var(--cyan);">
+      <span class="sign-pole"></span><span class="sign-flag">ABOUT</span>
+    </button>
+    <button class="sign" data-target="#status"       style="--pos:23%; --flag:var(--purple);">
+      <span class="sign-pole"></span><span class="sign-flag">STATUS</span>
+    </button>
+    <button class="sign" data-target="#worldmap"     style="--pos:40%; --flag:var(--pink);">
+      <span class="sign-pole"></span><span class="sign-flag">PROJECTS</span>
+    </button>
+    <button class="sign" data-target="#questlog"     style="--pos:57%; --flag:var(--yellow);">
+      <span class="sign-pole"></span><span class="sign-flag">QUESTS</span>
+    </button>
+    <button class="sign" data-target="#achievements" style="--pos:74%; --flag:var(--purple);">
+      <span class="sign-pole"></span><span class="sign-flag">AWARDS</span>
+    </button>
+    <button class="sign" data-target="#continue"     style="--pos:90%; --flag:var(--pink);">
+      <span class="sign-pole"></span><span class="sign-flag">CONNECT</span>
+    </button>
+
+    <!-- Emna pixel sprite -->
+    <div class="player" id="player">
+      <svg viewBox="0 0 16 22" shape-rendering="crispEdges" class="player-svg" aria-label="Pixel character">
+        <rect x="4" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="5" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="6" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="7" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="8" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="9" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="10" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="11" y="0" width="1" height="1" fill="#2a1608"/>
+        <rect x="3" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="4" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="5" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="6" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="7" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="8" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="9" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="10" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="11" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="12" y="1" width="1" height="1" fill="#2a1608"/>
+        <rect x="2" y="2" width="13" height="1" fill="#2a1608"/>
+        <rect x="2" y="3" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="3" width="7" height="1" fill="#f4d0b0"/>
+        <rect x="12" y="3" width="3" height="1" fill="#2a1608"/>
+        <rect x="2" y="4" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="4" width="7" height="1" fill="#f4d0b0"/>
+        <rect x="12" y="4" width="3" height="1" fill="#2a1608"/>
+        <!-- eyes row with lashes -->
+        <rect x="2" y="5" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="5" width="1" height="1" fill="#0a0614"/>
+        <rect x="6" y="5" width="1" height="1" fill="#2a1608"/>
+        <rect x="7" y="5" width="1" height="1" fill="#0a0614"/>
+        <rect x="8" y="5" width="1" height="1" fill="#f4d0b0"/>
+        <rect x="9" y="5" width="1" height="1" fill="#0a0614"/>
+        <rect x="10" y="5" width="1" height="1" fill="#2a1608"/>
+        <rect x="11" y="5" width="1" height="1" fill="#0a0614"/>
+        <rect x="12" y="5" width="1" height="1" fill="#f4d0b0"/>
+        <rect x="13" y="5" width="3" height="1" fill="#2a1608"/>
+        <rect x="2" y="6" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="6" width="1" height="1" fill="#f4d0b0"/>
+        <rect x="6" y="6" width="1" height="1" fill="#2a1608"/>
+        <rect x="7" y="6" width="3" height="1" fill="#f4d0b0"/>
+        <rect x="10" y="6" width="1" height="1" fill="#2a1608"/>
+        <rect x="11" y="6" width="2" height="1" fill="#f4d0b0"/>
+        <rect x="13" y="6" width="2" height="1" fill="#2a1608"/>
+        <!-- nose -->
+        <rect x="2" y="7" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="7" width="9" height="1" fill="#f4d0b0"/>
+        <rect x="14" y="7" width="1" height="1" fill="#2a1608"/>
+        <rect x="2" y="8" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="8" width="3" height="1" fill="#f4d0b0"/>
+        <rect x="8" y="8" width="1" height="1" fill="#0a0614"/>
+        <rect x="9" y="8" width="4" height="1" fill="#f4d0b0"/>
+        <rect x="13" y="8" width="2" height="1" fill="#2a1608"/>
+        <!-- lips -->
+        <rect x="2" y="9" width="3" height="1" fill="#2a1608"/>
+        <rect x="5" y="9" width="2" height="1" fill="#f4d0b0"/>
+        <rect x="7" y="9" width="3" height="1" fill="#c97078"/>
+        <rect x="10" y="9" width="3" height="1" fill="#f4d0b0"/>
+        <rect x="13" y="9" width="3" height="1" fill="#2a1608"/>
+        <!-- chin -->
+        <rect x="2" y="10" width="5" height="1" fill="#2a1608"/>
+        <rect x="6" y="10" width="5" height="1" fill="#f4d0b0"/>
+        <rect x="11" y="10" width="5" height="1" fill="#2a1608"/>
+        <!-- neck -->
+        <rect x="3" y="11" width="5" height="1" fill="#2a1608"/>
+        <rect x="6" y="11" width="4" height="1" fill="#f4d0b0"/>
+        <rect x="10" y="11" width="3" height="1" fill="#2a1608"/>
+        <rect x="4" y="12" width="2" height="1" fill="#2a1608"/>
+        <rect x="5" y="12" width="5" height="1" fill="#f4d0b0"/>
+        <rect x="10" y="12" width="1" height="1" fill="#2a1608"/>
+        <!-- ribbon choker -->
+        <rect x="4" y="13" width="1" height="1" fill="#0a0614"/>
+        <rect x="5" y="13" width="5" height="1" fill="#111111"/>
+        <rect x="10" y="13" width="1" height="1" fill="#0a0614"/>
+        <!-- pearl choker -->
+        <rect x="4" y="14" width="1" height="1" fill="#0a0614"/>
+        <rect x="5" y="14" width="6" height="1" fill="#ddd8cc"/>
+        <rect x="11" y="14" width="1" height="1" fill="#0a0614"/>
+        <!-- shirt collar -->
+        <rect x="3" y="15" width="1" height="1" fill="#0a0614"/>
+        <rect x="4" y="15" width="8" height="1" fill="#f0eef0"/>
+        <rect x="12" y="15" width="1" height="1" fill="#0a0614"/>
+        <!-- shirt body -->
+        <rect x="2" y="16" width="1" height="1" fill="#0a0614"/>
+        <rect x="3" y="16" width="12" height="1" fill="#f0eef0"/>
+        <rect x="14" y="16" width="1" height="1" fill="#0a0614"/>
+        <rect x="2" y="17" width="1" height="1" fill="#0a0614"/>
+        <rect x="3" y="17" width="12" height="1" fill="#f0eef0"/>
+        <rect x="14" y="17" width="1" height="1" fill="#0a0614"/>
+        <!-- hair over shoulders -->
+        <rect x="2" y="18" width="1" height="1" fill="#0a0614"/>
+        <rect x="3" y="18" width="11" height="1" fill="#2a1608"/>
+        <rect x="14" y="18" width="1" height="1" fill="#0a0614"/>
+        <rect x="2" y="19" width="1" height="1" fill="#0a0614"/>
+        <rect x="3" y="19" width="11" height="1" fill="#2a1608"/>
+        <rect x="14" y="19" width="1" height="1" fill="#0a0614"/>
+        <!-- shirt lower -->
+        <rect x="2" y="20" width="1" height="1" fill="#0a0614"/>
+        <rect x="3" y="20" width="12" height="1" fill="#f0eef0"/>
+        <rect x="14" y="20" width="1" height="1" fill="#0a0614"/>
+        <rect x="2" y="21" width="2" height="1" fill="#0a0614"/>
+        <rect x="4" y="21" width="9" height="1" fill="#f0eef0"/>
+        <rect x="13" y="21" width="2" height="1" fill="#0a0614"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="dpad" id="dpad" aria-hidden="true">
+    <button class="dpad-btn" id="dpad-left"  aria-label="Move left">◀</button>
+    <button class="dpad-btn" id="dpad-right" aria-label="Move right">▶</button>
+    <button class="dpad-btn dpad-a" id="dpad-a" aria-label="Select">A</button>
+  </div>
+
+  <div class="scroll-cue">▼ SCROLL ▼</div>
+</header>
+
+<hr class="level-divider">
+
+<main id="main">
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <p class="section-tag">// FILE_01</p>
+    <h2 class="section-title">ABOUT</h2>
+    <div class="panel about-panel">
+      <p>Electrical engineering student at <strong>ENIT</strong> (Tunisia) with hands-on experience in embedded systems, embedded Linux, and IoT.</p>
+      <p>Comfortable working low-level: C, Linux kernel drivers, kernel modules, and multi-threaded POSIX programming, with hardware integration on <strong>ESP32</strong>, <strong>STM32</strong>, and <strong>BeagleBone Black</strong> (ARM Cortex-A8).</p>
+      <p>Also worked on Li-ion battery modeling and state-of-charge (SOC) estimation — directly relevant to autonomy in IoT devices.</p>
+      <p>Driven by building robust embedded systems for constrained environments.</p>
+    </div>
+    <div class="lang-row">
+      <span class="pixel-tag">ARABIC — NATIVE</span>
+      <span class="pixel-tag">FRENCH — UPPER-INT</span>
+      <span class="pixel-tag">ENGLISH — B2 (onSET)</span>
+    </div>
+  </section>
+
+  <hr class="level-divider">
+
+  <!-- STATUS -->
+  <section id="status" class="section">
+    <p class="section-tag">// FILE_02</p>
+    <h2 class="section-title">STATUS</h2>
+    <div class="stats-grid">
+
+      <div class="stat-block">
+        <div class="stat-head"><span>EMBEDDED PLATFORMS</span><span class="tier tier-core">CORE</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:5;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">ESP32</span><span class="pixel-tag">STM32</span><span class="pixel-tag">Arduino</span><span class="pixel-tag">BeagleBone Black</span><span class="pixel-tag">Zybo</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>EMBEDDED LINUX</span><span class="tier tier-core">CORE</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:5;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">Kernel Modules (LKM)</span><span class="pixel-tag">Device Tree</span><span class="pixel-tag">GPIO / IRQ</span><span class="pixel-tag">sysfs PWM/ADC</span><span class="pixel-tag">/proc</span><span class="pixel-tag">libgpiod v2</span><span class="pixel-tag">Cross-compilation</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>SYSTEMS PROGRAMMING</span><span class="tier tier-core">CORE</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:5;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">Embedded C</span><span class="pixel-tag">C++</span><span class="pixel-tag">Python</span><span class="pixel-tag">POSIX Threads</span><span class="pixel-tag">Mutex</span><span class="pixel-tag">Interrupt Handling</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>COMMUNICATION PROTOCOLS</span><span class="tier tier-growing">GROWING</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:3;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">WiFi</span><span class="pixel-tag">UART</span><span class="pixel-tag">SPI</span><span class="pixel-tag">I2C</span><span class="pixel-tag">LoRa (basics)</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>HARDWARE &amp; PCB</span><span class="tier tier-growing">GROWING</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:3;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">IR Sensors</span><span class="pixel-tag">ADC / DAC</span><span class="pixel-tag">PCB Design</span><span class="pixel-tag">Eagle</span><span class="pixel-tag">Soldering</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>ENGINEERING SOFTWARE</span><span class="tier tier-growing">GROWING</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:3;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">MATLAB</span><span class="pixel-tag">STM32CubeIDE</span><span class="pixel-tag">Vivado</span><span class="pixel-tag">ModelSim</span>
+        </div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat-head"><span>DATA SCIENCE</span><span class="tier tier-familiar">FAMILIAR</span></div>
+        <div class="bar"><span class="bar-fill" style="--fill:2;"></span></div>
+        <div class="tag-row">
+          <span class="pixel-tag">Scikit-learn</span><span class="pixel-tag">Pandas</span><span class="pixel-tag">Jupyter Notebook</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="level-divider">
+
+  <!-- PROJECTS -->
+  <section id="worldmap" class="section">
+    <p class="section-tag">// FILE_03</p>
+    <h2 class="section-title">PROJECTS — WORLD MAP</h2>
+    <p class="section-sub">Tap a level to unlock what's inside.</p>
+
+    <div class="world-map">
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-1</span><span class="level-name">BeagleBone Linux Driver</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">ENIT · 2025–2026</p>
+          <ul>
+            <li>Built a complete Linux driver stack: kernel module (LKM) + Device Tree overlay + GPIO interrupt handling (IRQ) for encoder-based speed measurement.</li>
+            <li>Developed a multi-threaded C application (POSIX, mutex) with ADC reading, PWM generation via sysfs, and /proc filesystem access.</li>
+            <li>Built an integrated metrology characterization tool — PWM precision validated to ±0.05%, with ARM Cortex-A8 cross-compilation.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">Linux Kernel</span><span class="pixel-tag">Device Tree</span><span class="pixel-tag">GPIO/IRQ</span><span class="pixel-tag">POSIX</span><span class="pixel-tag">C</span><span class="pixel-tag">ARM Cortex-A8</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-2</span><span class="level-name">ESP32 Wireless Game Controller</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">2025</p>
+          <ul>
+            <li>Designed a wireless PC game controller using ESP32 with real-time WiFi communication.</li>
+            <li>Managed wireless communication protocols and optimized transmission latency.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">ESP32</span><span class="pixel-tag">WiFi</span><span class="pixel-tag">Real-time</span><span class="pixel-tag">C/C++</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-3</span><span class="level-name">STM32 DC Fan Speed Controller</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">2026</p>
+          <ul>
+            <li>Implemented a real-time temperature monitoring and control system using an STM32 microcontroller.</li>
+            <li>Low-level C development: interrupt handling, timers, serial communication.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">STM32</span><span class="pixel-tag">Embedded C</span><span class="pixel-tag">Timers/IRQ</span><span class="pixel-tag">UART</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-4</span><span class="level-name">Li-ion Battery SOC Estimation</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">2026</p>
+          <ul>
+            <li>Developed and validated a State-of-Charge (SOC) estimation algorithm in MATLAB and Python.</li>
+            <li>Modeled battery energy behavior — directly applicable to IoT device autonomy.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">MATLAB</span><span class="pixel-tag">Python</span><span class="pixel-tag">Battery Modeling</span><span class="pixel-tag">SOC Estimation</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-5</span><span class="level-name">Infrared Barrier — Sensors &amp; PCB</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">2025</p>
+          <ul>
+            <li>Designed and built a complete system with IR sensors, a counter, and an alarm.</li>
+            <li>Designed circuit schematic and routed PCB in Eagle; soldered and functionally tested the board.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">PCB Design</span><span class="pixel-tag">Eagle</span><span class="pixel-tag">IR Sensors</span><span class="pixel-tag">Soldering</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-6</span><span class="level-name">Energy Consumption Prediction (ML)</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">2026</p>
+          <ul>
+            <li>Built a predictive model on the UCI energy dataset using Scikit-learn and Pandas.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">Python</span><span class="pixel-tag">Scikit-learn</span><span class="pixel-tag">Pandas</span><span class="pixel-tag">ML</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+      <details class="level">
+        <summary class="level-node"><span class="level-num">1-7</span><span class="level-name">Autonomous Line-Follower Robot</span></summary>
+        <div class="level-detail">
+          <p class="level-meta">FabLab ENIT · 2025</p>
+          <ul>
+            <li>Designed and built an autonomous robot for ENIT FabLab's inter-club competition.</li>
+          </ul>
+          <div class="tag-row"><span class="pixel-tag">Robotics</span><span class="pixel-tag">Embedded C</span><span class="pixel-tag">Sensors</span><span class="pixel-tag">Competition</span></div>
+          <a class="pixel-btn small" href="#" data-placeholder>VIEW REPO</a>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <hr class="level-divider">
+
+  <!-- QUEST LOG -->
+  <section id="questlog" class="section">
+    <p class="section-tag">// FILE_04</p>
+    <h2 class="section-title">QUEST LOG</h2>
+
+    <h3 class="subhead">▸ EXPERIENCE</h3>
+    <ol class="quest-list">
+      <li class="quest">
+        <p class="quest-title">Technical Intern — STEG <span class="quest-date">Nov 2025</span></p>
+        <p class="quest-loc">Société Tunisienne de l'Électricité et du Gaz, Sfax</p>
+        <ul>
+          <li>Studied power grid protection systems and energy distribution infrastructure.</li>
+          <li>Analyzed grid connection requirements for industrial electrical installations.</li>
+        </ul>
+      </li>
+      <li class="quest">
+        <p class="quest-title">Industrial Visit — Radès Thermal Power Plant <span class="quest-date">Feb 2025</span></p>
+        <ul><li>Observed turbine operation, energy conversion systems, and industrial safety procedures.</li></ul>
+      </li>
+      <li class="quest">
+        <p class="quest-title">Industrial Visit — TPR Tunisia (Aluminum Profiles) <span class="quest-date">Jul 2025</span></p>
+        <ul><li>Observed industrial automation systems and quality control procedures.</li></ul>
+      </li>
+    </ol>
+
+    <h3 class="subhead">▸ EDUCATION</h3>
+    <ol class="quest-list">
+      <li class="quest">
+        <p class="quest-title">Engineering Degree, Electrical Engineering — ENIT <span class="quest-date">2024 – Present</span></p>
+        <p class="quest-loc">École Nationale d'Ingénieurs de Tunis</p>
+        <p class="quest-note">Embedded Systems · Signal Processing · Electronics · Automation · Machine Learning</p>
+      </li>
+      <li class="quest">
+        <p class="quest-title">Preparatory Cycle, Technology Track — IPEIS <span class="quest-date">2022 – 2024</span></p>
+        <p class="quest-loc">Institut Préparatoire aux Études d'Ingénieurs de Sfax</p>
+      </li>
+      <li class="quest">
+        <p class="quest-title">Baccalauréat, Technical Sciences <span class="quest-date">2018 – 2022</span></p>
+        <p class="quest-loc">Lycée Fadhel Ben Achour</p>
+      </li>
+    </ol>
+  </section>
+
+  <hr class="level-divider">
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section">
+    <p class="section-tag">// FILE_05</p>
+    <h2 class="section-title">ACHIEVEMENTS UNLOCKED</h2>
+    <div class="badge-grid">
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true"></span>
+        <p class="badge-title">PROJECT LEAD</p>
+        <p class="badge-sub">Electrical Engineering Club, ENIT — May 2025 to May 2026</p>
+      </div>
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true"></span>
+        <p class="badge-title">2ND PLACE</p>
+        <p class="badge-sub">Injaz Tunisia Entrepreneurship Competition — 2025</p>
+      </div>
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true"></span>
+        <p class="badge-title">COMPETITOR</p>
+        <p class="badge-sub">FabLab ENIT Robotics Competition — 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="level-divider">
+
+  <!-- CONTACT — OSCILLOSCOPE -->
+  <section id="continue" class="section continue-section">
+    <p class="section-tag">// FILE_06</p>
+    <h2 class="section-title blink-title">CONNECT?</h2>
+    <p class="section-sub">Sfax, Tunisia — open to opportunities &amp; collaboration</p>
+
+    <div class="osc-container">
+      <div class="osc-header">
+        <span>SIGNAL_OUTPUT.exe</span>
+        <span class="osc-status">● LIVE</span>
+      </div>
+      <div class="osc-screen" id="osc-screen" title="Click to pulse">
+        <div class="osc-grid"></div>
+        <svg class="osc-wave" id="osc-wave" viewBox="0 0 680 100" preserveAspectRatio="none">
+          <polyline id="osc-line" fill="none" stroke="#4dd9c0" stroke-width="2"
+            points="0,50 680,50"/>
+        </svg>
+        <span class="osc-label">CH1 — CONTACT</span>
+      </div>
+      <p class="osc-hint">CLICK SCREEN TO PULSE</p>
+
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:emnaaghorbell@gmail.com">
+          <span class="contact-cmd">&gt; EMAIL</span>
+          <span class="contact-val">emnaaghorbell@gmail.com</span>
+        </a>
+        <a class="contact-item" href="https://linkedin.com/in/ghorbel-emna" target="_blank" rel="noopener">
+          <span class="contact-cmd">&gt; LINKEDIN</span>
+          <span class="contact-val">linkedin.com/in/ghorbel-emna</span>
+        </a>
+        <a class="contact-item" href="tel:+21655669919">
+          <span class="contact-cmd">&gt; PHONE</span>
+          <span class="contact-val">+216 55 669 919</span>
+        </a>
+        <a class="contact-item" href="#" data-placeholder>
+          <span class="contact-cmd">&gt; GITHUB</span>
+          <span class="contact-val">coming soon...</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="insert-coin">— TRANSMISSION READY —</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built from scratch by Emna Ghorbel — HTML, CSS &amp; JS, no frameworks.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
